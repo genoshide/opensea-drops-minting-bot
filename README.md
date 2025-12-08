@@ -1,0 +1,1 @@
+# opensea-drops-minting-bot
