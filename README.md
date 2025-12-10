@@ -186,7 +186,7 @@ FUNDING_AMOUNT="0.01"
 
 # --- WALLET CLEANER ---
 # Set ‘true’ to withdraw the remaining ETH to the Recipient Address after minting is complete
-AUTO_SWEEP_ETH=true
+AUTO_SWEEP_ETH=false
 # Minimum balance that can be withdrawn (to avoid losing money on fees). Example: 0.005 ETH
 MIN_ETH_TO_SWEEP="0.005"
 
