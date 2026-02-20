@@ -211,7 +211,9 @@ class ExecutionUnit:
                     else:
                         if wait_seconds > 2: await asyncio.sleep(wait_seconds - 2)
                     
-                    Logger.log(self._uid, "SUCCESS", f"WAKE UP! Executing Mint Sequence NOW!")
+                    Logger.log(
+                        self._uid, "SUCCESS", f"WAKE UP! Executing Mint Sequence NOW!"
+                        )
 
         except Exception as e:
             Logger.log(self._uid, "ERROR", f"Init Failed: {str(e)[:50]}")
@@ -249,7 +251,9 @@ class ExecutionUnit:
                     await asyncio.sleep(random.uniform(*self._cfg.delay_range))
                     continue
 
-                Logger.log(self._uid, "INFO", f"Initiating Mint Sequence...")
+                Logger.log(
+                    self._uid, "INFO", f"Initiating Mint Sequence..."
+                    )
                 nonce = await self._get_nonce()
                 gas_price = await self._compute_gas_strategy()
                 
@@ -287,7 +291,10 @@ class ExecutionUnit:
                     return 
                 else:
                     Logger.log(self._uid, "ERROR", "Transaction Reverted on-chain.")
-                    await asyncio.sleep(random.uniform(*self._cfg.delay_range))
+                    await asyncio.sleep(
+                        random.uniform(
+                            *self._cfg.delay_range)
+                        )
             
             except asyncio.TimeoutError:
                  Logger.log(self._uid, "WARNING", "Receipt Timeout.")
@@ -299,5 +306,8 @@ class ExecutionUnit:
                     await asyncio.sleep(2)
                     await self._rotate_provider()
                 else:
-                    Logger.log(self._uid, "ERROR", f"Runtime Fault: {str(e)[:100]}")
+                    Logger.log(
+                        self._uid, "ERROR",
+                          f"Runtime Fault: {str(e)[:100]}"
+                          )
                 await asyncio.sleep(1)

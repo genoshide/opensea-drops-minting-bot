@@ -29,7 +29,9 @@ async def orchestrator():
     keys = _load_credentials()
     
     if not keys:
-        Logger.log("SYS", "FATAL", "The private_key.txt file is empty or cannot be found!")
+        Logger.log(
+            "SYS", "FATAL", "The private_key.txt file is empty or cannot be found!"
+            )
         await asyncio.sleep(5)
         return
 
@@ -47,7 +49,9 @@ async def orchestrator():
             Logger.log("SYS", "ERROR", f"Auto-Funder Failure: {e}")
             await asyncio.sleep(2)
 
-    Logger.log("SYS", "INIT", f"Spawning {len(keys)} workers with limit {CONFIG.max_threads}...")
+    Logger.log(
+        "SYS", "INIT", f"Spawning {len(keys)} workers with limit {CONFIG.max_threads}..."
+        )
     
     semaphore = asyncio.Semaphore(CONFIG.max_threads)
     
